@@ -1,14 +1,25 @@
 const express = require("express");
 
 const app = express();
+
 app.use(express.json());
+
+
+// ===============================
+// INICIO
+// ===============================
 
 app.get("/", (req, res) => {
     res.json({
         ok: true,
-        mensaje: "Eagle API funcionando"
+        mensaje: "🦅 Eagle API funcionando"
     });
 });
+
+
+// ===============================
+// CREAR SALA
+// ===============================
 
 app.post("/crear-sala", (req, res) => {
 
@@ -23,6 +34,13 @@ app.post("/crear-sala", (req, res) => {
 
 });
 
-app.listen(3000, () => {
-    console.log("🦅 Eagle API funcionando en puerto 3000");
+
+// ===============================
+// PUERTO
+// ===============================
+
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, "0.0.0.0", () => {
+    console.log(`🦅 Eagle API funcionando en puerto ${PORT}`);
 });
